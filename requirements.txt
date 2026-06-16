@@ -1,0 +1,9 @@
+torch
+torchvision
+numpy
+scipy
+pandas
+matplotlib
+scikit-learn
+shap
+flask

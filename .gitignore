@@ -1,0 +1,6 @@
+venv/
+pycache/
+.vscode/
+*.csv
+*.zip
+data/ 
