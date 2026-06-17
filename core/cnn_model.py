@@ -6,7 +6,7 @@ class PneumoniaCNN(nn.Module):
     def __init__(self, num_classes=2):
         super(PneumoniaCNN, self).__init__()
         # استفاده از یک مدل پیش‌آموزش دیده (ResNet) - بسیار حرفه‌ای برای دکتری
-        self.network = models.resnet18(pretrained=True)
+        self.network = models.resnet18(weights='DEFAULT')
         
         # تغییر لایه آخر برای انطباق با تعداد کلاس‌های ما (سالم و بیمار)
         num_ftrs = self.network.fc.in_features
