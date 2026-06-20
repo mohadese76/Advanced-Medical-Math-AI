@@ -7,5 +7,4 @@ matplotlib
 scikit-learn
 shap
 flask
-sympy
-mpmath
+opencv-python

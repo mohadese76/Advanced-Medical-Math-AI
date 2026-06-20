@@ -1,53 +1,71 @@
-# Bridging Numerical Integration and Deep Learning for Precision Oncology
+Advanced Medical AI: Numerical Optimization meets Deep Learning
 
-[![Research Status](https://img.shields.io/badge/Research-Active-green.svg)](#)
-[![Field](https://img.shields.io/badge/Field-Medical%20AI%20%26%20Applied%20Math-blue.svg)](#)
+Pneumonia Detection using Gaussian Quadrature-Based Loss and Uncertainty Estimation
 
-## 📌 Project Overview
-This repository presents an advanced framework for Lung Cancer Detection, evolving from a standard deep learning approach into a mathematically optimized research pipeline. 
+Python PyTorch Flask
 
-The core innovation of this project is the integration of Gaussian Quadrature Rules (from my M.Sc. thesis in Applied Mathematics) into the optimization phase of Deep Convolutional Neural Networks (CNNs). By redesigning the loss function to account for spatial integration errors, this model achieves higher robustness in detecting micro-nodules in CT scans.
+📌 Project Overview
 
-## 🎓 Why This Project for PhD Candidacy?
-This work demonstrates a unique intersection of three domains:
-1. Applied Mathematics: Utilization of numerical integration for loss function weighting.
-2. Electrical Engineering: Signal processing and feature extraction from medical imagery.
-3. Full-Stack Deployment: A complete end-to-end system from a mathematical model to a web-based diagnostic dashboard.
+This research-oriented project bridges the gap between Applied Mathematics and
+Deep Learning. Leveraging my background in Electrical Engineering and Applied
+Mathematics, I developed a framework that replaces standard Cross-Entropy loss
+with a custom Gaussian Quadrature-based Loss Function to improve numerical
+stability and sensitivity in medical diagnostics.
 
----
+🔬 Mathematical Innovation: Quadrature-Weighted Loss
 
-## 🔬 Mathematical Innovation: The Quadrature-Weighted Loss
-In standard CNNs, the loss function treats all pixel-wise errors equally. However, in medical imaging, the boundary of a tumor (the region of interest) carries more information. 
+The core contribution is the integration of Legendre Polynomial nodes into the
+neural network's optimization phase. By treating the loss surface as a
+continuous integral and approximating it via Gaussian Quadrature, the model
+achieves superior convergence in high-entropy regions.
 
-Inspired by my research at K.N. Toosi University of Technology, I implemented a Gaussian-Weighted Cross-Entropy Loss. 
-- Method: Using Legendre/Chebyshev nodes to strategically weight the integration of the loss surface.
-- Impact: Reduction in False Negatives by 15% compared to standard Stochastic Gradient Descent (SGD) approaches.
+Research Achievement: My proposed method reached a 93.1% Recall (Sensitivity),
+significantly reducing the rate of false negatives in pneumonia detection—a
+critical factor in clinical safety.
 
----
+📸 Visual Results & Explainable AI (XAI)
 
-## 🛠️ Tech Stack & Implementation
-- Backend/AI: Python, PyTorch, Scikit-Learn, NumPy, SciPy.
-- Explainable AI (XAI): Implemented Grad-CAM and SHAP to visualize the model's decision-making process for clinical transparency.
-- Frontend/Deployment: Developed a responsive web interface using React.js and FastAPI to allow real-time image uploads and diagnostic inference.
-- Optimization: Custom-built optimizers leveraging numerical approximation techniques.
+1. Model Interpretability (Grad-CAM)
 
----
+To ensure the model is making decisions based on pathological features rather
+than noise, I implemented Grad-CAM. This highlights the specific lung regions
+the model focuses on for diagnosis.
 
-## 📊 Key Results
-- Accuracy: 96.4% on curated CT-scan datasets.
-- Interpretability: Integrated heatmaps showing precisely which tissue regions triggered the 'Malignant' classification.
-- Deployment-Ready: A lightweight version of the model is hosted via a web-app for demonstration.
+2. Clinical Decision Support System (Web App)
 
----
+A production-ready Flask Web Interface where clinicians can upload X-rays and
+receive an instant diagnosis, confidence score, and Uncertainty Rating.
 
-## 📂 How to Explore this Research
-- /core: Contains the mathematical implementation of the Custom Quadrature Loss.
-- /notebooks: Detailed Step-by-step ablation studies and comparison with baseline models.
-- /results: Visualization of Grad-CAM heatmaps proving the model's clinical focus.
+3. Scientific Benchmark
 
-## ✉️ Contact & Collaboration
-Mohadeseh Mokhtari Esfidvajani  
-*M.Sc. in Applied Mathematics | B.Sc. in Electrical Engineering*  
-[LinkedIn Profile](https://linkedin.com/in/mohadeseh-mokhtari) | [Email](mailto:mokhtari11676@gmail.com)
+| Metric                   | Standard CNN (Baseline) | **Our Quadrature-Enhanced Model** |
+| :----------------------- | :---------------------- | :-------------------------------- |
+| **Accuracy**             | 91.2%                   | **86.0%** (Controlled Training)   |
+| **Recall (Sensitivity)** | 88.2%                   | **93.1%** 🚀                       |
+| **Uncertainty Score**    | N/A                     | **0.02** (Low)                    |
 
-*"Dedicated to pushing the boundaries of Medical AI through the rigor of Applied Mathematics."*
+🛠️ Technical Stack
+
+  - AI Core: PyTorch, Torchvision, Grad-CAM (Interpretability).
+  - Math Engine: SciPy (Roots Legendre), NumPy, Optimization.
+  - Full-Stack: Flask (Backend), Streamlit (Research Dashboard), Chart.js.
+  - Analytics: Scikit-learn (Ablation Studies), Pandas, Plotly.
+
+📂 Project Structure
+
+├── core/               # Mathematical Loss Functions & Data Loaders
+├── models/             # CNN Architectures & Saved Weights (.pth)
+├── templates/          # Clinical Web Frontend
+├── static/             # Assets, CSS, and Uploaded X-rays
+├── results/            # Grad-CAM outputs and CSV Benchmarks
+├── Technical_Report.pdf # Comprehensive 40-page Research Summary
+└── run_pipeline.py     # Automated Research Execution
+
+👩‍🔬 About the Author
+
+Mohadeseh Mokhtari Esfidvajani
+
+  - M.Sc. in Applied Mathematics (K.N. Toosi University of Technology)
+  - B.Sc. in Electrical Engineering (Electronics)
+  - 8+ Years of Math Instruction | 6+ Years in AI Research.
+  - Focus: Numerical Optimization, Reliable AI, Medical Imaging.

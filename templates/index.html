@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Medical Diagnosis System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Pneumonia Diagnosis Support</h1>
+            <p>Optimized with Gaussian Quadrature | Uncertainty-Aware Implementation</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <h3>Upload Chest X-Ray</h3>
+                <input type="file" id="fileInput" accept="image/*">
+                <button onclick="analyzeImage()">Analyze X-Ray</button>
+            </div>
+
+            <div id="results" class="results-section" style="display: none;">
+                <div class="image-preview">
+                    <img id="previewImg" src="" alt="X-Ray Preview">
+                </div>
+                <div class="stats">
+                    <h2>Diagnosis: <span id="diagnosis"></span></h2>
+                    <p>Confidence Level: <span id="confidence"></span></p>
+                    <p>Uncertainty Score: <span id="uncertainty"></span></p>
+                    <small id="math-note">Calculated using Legendre-Nodes weighted Loss integration.</small>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        async function analyzeImage() {
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length === 0) return alert("Please select a file!");
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            const res = await fetch('/predict', { method: 'POST', body: formData });
+            const data = await res.json();
+
+            document.getElementById('results').style.display = 'flex';
+            document.getElementById('previewImg').src = data.image_url;
+            document.getElementById('diagnosis').innerText = data.diagnosis;
+            document.getElementById('confidence').innerText = data.confidence;
+            document.getElementById('uncertainty').innerText = data.uncertainty;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f9; color: #333; margin: 0; }
+.container { max-width: 900px; margin: 50px auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+header { text-align: center; border-bottom: 2px solid #e1e8ed; padding-bottom: 20px; }
+h1 { color: #2c3e50; margin: 0; }
+.upload-section { margin: 30px 0; text-align: center; }
+button { background-color: #3498db; color: white; border: none; padding: 12px 30px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+button:hover { background-color: #2980b9; }
+.results-section { display: flex; gap: 30px; margin-top: 40px; border-top: 1px solid #eee; padding-top: 30px; }
+.image-preview img { max-width: 350px; border-radius: 10px; }
+.stats { flex: 1; }
+#diagnosis { color: #e74c3c; }
+#math-note { color: #7f8c8d; font-style: italic; display: block; margin-top: 20px; }
